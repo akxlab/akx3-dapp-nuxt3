@@ -1,0 +1,34 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@volar-plugins/vetur": "^0.1.0",
+    "nuxt": "3.0.0-rc.11",
+    "vuetify": "3.0.0-beta.11"
+  },
+  "dependencies": {
+    "@esbuild-plugins/node-globals-polyfill": "^0.1.1",
+    "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
+    "@mdi/font": "^7.0.96",
+    "@metamask/detect-provider": "^2.0.0",
+    "@nuxt/types": "^2.15.8",
+    "@pinia/nuxt": "^0.4.3",
+    "@vueuse/core": "^9.3.0",
+    "ethers": "^5.7.1",
+    "highcharts": "^10.0.0",
+    "nuxt-highcharts": "^3.0.7",
+    "nuxt-socket-io": "^3.0.9",
+    "pinia": "^2.0.23",
+    "pinia-plugin-persist": "^1.0.0",
+    "sass": "^1.55.0",
+    "vue-chart-3": "^3.1.8",
+    "vue-chartjs": "^4.1.2",
+    "vue3-charts": "^1.1.31"
+  }
+}
