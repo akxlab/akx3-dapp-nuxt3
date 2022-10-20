@@ -19,6 +19,11 @@ const listener = useState("listener", () => undefined)
 const logs = useState("logs", () => undefined)
 let addr
 
+defineProps({
+  coinName: String,
+  netName: String,
+})
+
 onBeforeMount(async () => {
 
   const logFormat = (hex, addr) => {
@@ -72,16 +77,22 @@ const buy = async () => {
 
 }
 
+const amountLabel = `amount of Matic to change for `
+
 </script>
 <template>
   <div>
     <v-card>
       <v-card-text v-if="store.$state.user">
-        <h2 class="buying-title">you are buying for: <br /></h2>
+        <h1 class="my-8">CONNECTED TO: {{$props.netName}}</h1>
+        <v-divider/>
+        <h2 class="buying-title my-4">you are buying for: <br /></h2>
         <h3 class="buying-address"> Connected Address: {{store.$state.user.address}}</h3>
-        <div class="buying-note pt-4 pb-4">please, make sure this is your metamask address.</div>
-        <v-text-field v-model="amount" label="amount of Matic to change for AKX" hide-details class="mt-4 mb-4" />
-        <v-btn  color="primary" size="x-large" @click="buy">BUY AKX</v-btn>
+        <div class="buying-note pt-4 pb-4 my-6">please, make sure this is your metamask address.</div>
+        <v-divider/>
+        <h4 class="my-6">amount of <span class="blue">{{ $props.coinName }}</span> to change for AKX</h4>
+        <v-text-field v-model="amount" label="amount to change for AKX" hide-details class="my-6" />
+        <v-btn  color="primary" size="x-large" class="buynow" @click="buy">BUY AKX</v-btn>
       </v-card-text>
     </v-card>
 
@@ -91,18 +102,56 @@ const buy = async () => {
 
 <style>
 
+h1 {
+  font-size:1.2rem;
+  color: #c6cbcc;
+
+
+  font-family: sofia-pro, sans-serif;
+
+  font-weight: 700 !important;
+
+  font-style: normal !important;
+}
+
+.blue {
+  color: #009fe3;
+}
+
 h2.buying-title {
   line-height:normal;
+
+
+  font-family: sofia-pro, sans-serif;
+
+  font-weight: 300 !important;
+
+  font-style: normal !important;
 }
 
 h3.buying-address {
   font-size:1.2rem;
   color: #009fe3;
+
+
+  font-family: sofia-pro, sans-serif;
+
+  font-weight: 700 !important;
+
+  font-style: normal !important;
 }
 
 .buying-note {
   font-size:0.9rem;
   margin-top:4px;
+}
+
+.buynow {
+  font-family: sofia-pro, sans-serif;
+
+  font-weight: 700 !important;
+
+  font-style: normal !important;
 }
 
 </style>
