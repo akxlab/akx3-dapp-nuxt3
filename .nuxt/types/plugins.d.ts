@@ -11,7 +11,8 @@ type NuxtAppInjections =
   InjectionType<typeof import("../../node_modules/nuxt/dist/head/runtime/plugin").default> &
   InjectionType<typeof import("../../node_modules/nuxt/dist/pages/runtime/router").default> &
   InjectionType<typeof import("../../node_modules/@pinia/nuxt/dist/runtime/plugin.vue3").default> &
-  InjectionType<typeof import("../../node_modules/nuxt-highcharts/lib/plugin").default> &
+  InjectionType<typeof import("../../plugins/loading").default> &
+  InjectionType<typeof import("../../plugins/pinia-plugin-persist.client").default> &
   InjectionType<typeof import("../../plugins/vuetify").default>
 
 declare module '#app' {
