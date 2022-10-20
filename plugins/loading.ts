@@ -7,5 +7,6 @@ nuxtApp.hook("page:start", () => {
 });
 nuxtApp.hook("page:finish", () => {
     store.setLoading(false);
+    
 });
 });
