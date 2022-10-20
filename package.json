@@ -28,6 +28,7 @@
     "pinia": "^2.0.23",
     "pinia-plugin-persist": "^1.0.0",
     "sass": "^1.55.0",
+    "unbuild": "^0.9.4",
     "vue-chart-3": "^3.1.8",
     "vue-chartjs": "^4.1.2",
     "vue3-charts": "^1.1.31",
