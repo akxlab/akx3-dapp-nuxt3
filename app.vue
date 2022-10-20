@@ -25,24 +25,9 @@ if(store.isLoading == false) {
         <NuxtPage />
       </v-main>
       <v-footer dark app>
-      <v-row justify="center" class="my-4 text-center">
-        <v-col cols="12">Check us out on those networks</v-col>
-        <v-col cols="12">
-          <v-btn variant="text">
-            <v-icon>mdi-facebook</v-icon>
-          </v-btn>
-          <v-btn variant="text">
-            <v-icon>mdi-twitter</v-icon>
-          </v-btn>
-          <v-btn variant="text">
-            <v-icon>mdi-github</v-icon>
-          </v-btn>
-          <v-btn variant="text">
-            <v-icon>mdi-ethereum</v-icon>
-          </v-btn>
-
-        </v-col>
-        <v-col cols="12" class="align-center">&copy; 2022 AKX3.com</v-col>
+      <v-row justify="center" class="my-1 text-center">
+                                                                                                  
+               <v-col cols="12" class="align-center">&copy; 2022 AKX3.com</v-col>
       </v-row>
     </v-footer>
 
