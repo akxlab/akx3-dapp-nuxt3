@@ -3,6 +3,7 @@
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "strict": false,
-    "noImplicitThis": true
+    "noImplicitThis": true,
+    "types": [ "pinia-plugin-persist"]
   }
 }

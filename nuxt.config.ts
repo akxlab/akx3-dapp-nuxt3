@@ -31,6 +31,10 @@ export default defineNuxtConfig({
             NETWORK_ID: 0x05
         }
     },
+    app:{
+      pageTransition:false,
+      layoutTransition: false
+    },
     globalName: 'AKX3',
     head: {
         components: true,
@@ -47,7 +51,9 @@ export default defineNuxtConfig({
         link: [
           { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
           
-        {rel: 'stylesheet', href:'https://use.typekit.net/tie2ewy.css'}
+        {rel: 'stylesheet', href:'https://use.typekit.net/fib6nnw.css'}
+
+        
 
         ]
       },
@@ -57,7 +63,8 @@ export default defineNuxtConfig({
     build: {
         transpile: ['vuetify', '@ethersproject'],
       },
-   
+      plugins: ["~/plugins/loading"],
+    
   
     vite: {
         optimizeDeps: {
@@ -87,16 +94,18 @@ export default defineNuxtConfig({
 
     
     },
+
     experimental: {
         reactivityTransform: true
     },
     modules: [
-        ['nuxt-highcharts', {pluginOptions: {}}],
+       
         ['@pinia/nuxt', {
         autoImports: [
             'defineStore',
             ['defineStore', 'definePiniaStore']
         ]
+        
     }
 ],],
 highcharts: {

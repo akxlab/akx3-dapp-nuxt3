@@ -42,15 +42,5 @@ declare module '@nuxt/schema' {
   }
   interface PublicRuntimeConfig {
      NETWORK_ID: number,
-
-    nuxtHighcharts: {
-        pluginOptions: {
-             exporting: boolean,
-
-             pluginOptions: any,
-        },
-
-        hcMods: Array<string>,
-    },
   }
 }

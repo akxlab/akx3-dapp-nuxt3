@@ -3,6 +3,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "devssl": "nuxt dev --https --ssl-cert localhost+4.pem --ssl-key localhost+4-key.pem",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -29,6 +30,7 @@
     "sass": "^1.55.0",
     "vue-chart-3": "^3.1.8",
     "vue-chartjs": "^4.1.2",
-    "vue3-charts": "^1.1.31"
+    "vue3-charts": "^1.1.31",
+    "vuetify-loader": "^2.0.0-alpha.9"
   }
 }
