@@ -49,10 +49,6 @@ export const useGlobalStore = defineStore('globalStore', {
         },
         setLoading(status:boolean) {
             this.loading = status;
-        },
-        setProvider(provider:any) {
-            this.network = {provider:provider.value, chainId:null, contracts:null}
-          
         }
     },
     persist: {

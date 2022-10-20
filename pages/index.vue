@@ -41,7 +41,7 @@ const connect = async () => {
   await connectUser(provider);
 
   store.setLoading(true);
-  store.setProvider(await getProvider());
+
   const user: any = await getCurrentUser();
   const balance = await getBalance(user[0]);
   const chainId = await getChainId();
@@ -61,36 +61,39 @@ const connect = async () => {
 
 onMounted(async () => {
 
-  loadConnectedWallet(provider.value);
+  await loadConnectedWallet(provider.value);
 
 
+
+
+})
+
+if(provider.value) {
   provider.value.on('accountsChanged', async (accounts) => {
-    loadConnectedWallet(provider.value);
+    await loadConnectedWallet(provider.value);
     store.setLoading(true);
     const user: any = await getCurrentUser();
     const balance = await getBalance(user[0]);
     const chainId = await getChainId();
-    store.setUserData({ address: user[0], balance: ethers.utils.formatUnits(balance), chainId })
+    store.setUserData({address: user[0], balance: ethers.utils.formatUnits(balance), chainId})
     store.authenticated(true);
     store.setLoading(false);
   })
-
-
-})
+}
 
 </script>
 <template>
 <v-container>
 
 
-    <v-card class="ma-auto" width="90vw" elevation="11"
+    <v-card class="ma-auto" width="100%" elevation="11"
       style="background-color:rgba(0,0,0,0.8); background-image:url('/akxbg.png'); background-size:cover;border-radius:20px;background-blend-mode: overlay;">
 
       <v-card-text class="pa-12">
         <v-row justify="center" align-content="center">
           <v-col cols="12" xl="6" lg="10" class="text-center">
             <v-row justify="center" align-content="center">
-              <v-col cols="3" xl="3" lg="5" sm="5" xs="5">
+              <v-col cols="10" xl="3" lg="5" sm="10" >
                 <v-img src="/akxlogo.png" width="100%" class="ma-auto" />
               </v-col>
             </v-row>
@@ -100,9 +103,9 @@ onMounted(async () => {
                 <div class="mt-8 mb-8 text-center ma-auto">
                   <p class="home-content ma-auto">
                     <strong>WHY CONNECT?</strong><br />
-                    AKX3 is running on top of Ethereum which is a decentralized secure network. By using Metamask to
+                    AKX3 is running on top of Ethereum and Polygon which are decentralized secure network. <span class="hidden-sm-and-down">by using Metamask to
                     connect, you can be assured nobody else than you will be able to use your wallet. It also enables
-                    you to get access to your dashboard to fine tune your experience in the AKX3 Ecosystem.<br /><br>
+                    you to get access to your dashboard to fine tune your experience in the AKX3 Ecosystem.<br /><br></span>
                     <a href="#">learn how to get metamask and connect</a>
                   </p>
                 </div>
@@ -114,7 +117,7 @@ onMounted(async () => {
         <v-row justify="center" align-content="center">
           <v-col cols="12" sm="12" xl="6" lg="8" class="text-center">
             <v-btn width="100%" height="60" append-icon="mdi-account-supervisor-circle" color="primary"
-              @click="connect()" class="ma-auto btn-text">CONNECT TO THE decentralized world (ETH)</v-btn>
+              @click="connect()" class="ma-auto btn-text">CONNECT</v-btn>
           </v-col>
         </v-row>
 
@@ -164,5 +167,62 @@ strong {
   font-weight: 300 !important;
 
   font-style: normal !important;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .welcome-title {
+    font-size: 1.8rem;
+    line-height: 3rem;
+    text-transform: uppercase;
+    font-family: sofia-pro, sans-serif;
+
+    font-weight: 700 !important;
+
+    font-style: normal !important;
+  }
+  .home-content {
+    width: 100%;
+    font-size: 1rem;
+
+    font-family: sofia-pro, sans-serif;
+
+    font-weight: 300 !important;
+
+    font-style: normal !important;
+  }
+
+  .btn-text {
+    font-family: sofia-pro, sans-serif;
+
+    font-weight: 700;
+
+    font-style: normal;
+    width:100%;
+    word-wrap: break-word;
+  }
+
+}
+/****** START - iPad ******/
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .welcome-title {
+    font-size: 1.8rem;
+    line-height: 3rem;
+    text-transform: uppercase;
+    font-family: sofia-pro, sans-serif;
+
+    font-weight: 700 !important;
+
+    font-style: normal !important;
+  }
+  .home-content {
+    width: 100%;
+    font-size: 1rem;
+
+    font-family: sofia-pro, sans-serif;
+
+    font-weight: 300 !important;
+
+    font-style: normal !important;
+  }
 }
 </style>
