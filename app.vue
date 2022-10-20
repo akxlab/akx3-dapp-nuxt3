@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useGamepad } from '@vueuse/core';
+
 import { useGlobalStore } from './stores';
 
 const store = useGlobalStore();

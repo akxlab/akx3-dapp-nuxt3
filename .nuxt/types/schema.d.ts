@@ -35,6 +35,8 @@ declare module '@nuxt/schema' {
              token: string,
 
              sale: string,
+
+             usdc: string,
         },
     },
 
