@@ -18,8 +18,8 @@ export default defineNuxtConfig({
                 sale: ""
             },
             polygon: {
-                token: "",
-                sale: ""
+                token: "0x9973b3EA32B43BE1354FeE720e7D8d995F05eE7B",
+                sale: "0xAE3917776e609f361a9616DFD96952E43FF23B56"
             },
             mumbai: {
                 token: "",
