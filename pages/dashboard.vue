@@ -4,6 +4,7 @@ import useEther from '../composables/web3/useEther';
 
 import {useGlobalStore} from "~/stores";
 import { ethers } from 'ethers';
+import BuyButton from "~/components/buttons/BuyButton.vue";
 const store = useGlobalStore();
 const  {
     getProvider,
@@ -60,7 +61,7 @@ style="border-radius:15px;border:1px rgba(255,255,255,0.2) solid;"
 
     <v-card-text>
   
-
+  <BuyButton />
 
       </v-card-text>
     </v-card>

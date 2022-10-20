@@ -20,7 +20,7 @@ import { hash } from 'file:///Users/nicolascloutier/Desktop/akx3-dapp-nuxt3/node
 import { createStorage } from 'file:///Users/nicolascloutier/Desktop/akx3-dapp-nuxt3/node_modules/unstorage/dist/index.mjs';
 import unstorage_47drivers_47fs from 'file:///Users/nicolascloutier/Desktop/akx3-dapp-nuxt3/node_modules/unstorage/dist/drivers/fs.mjs';
 
-const _runtimeConfig = {"app":{"baseURL":"/","buildAssetsDir":"/_nuxt/","cdnURL":""},"nitro":{"routes":{},"envPrefix":"NUXT_"},"public":{"NETWORK_ID":5},"CONTRACTS":{"mainnet":{"token":"","sale":""},"goerli":{"token":"","sale":""},"polygon":{"token":"","sale":""},"mumbai":{"token":"","sale":""}},"apikey":"2493f3b9c68b5eac9f71ad07b174cbeae376e2dc8c4be5bf55f4b25a2d329f1e"};
+const _runtimeConfig = {"app":{"baseURL":"/","buildAssetsDir":"/_nuxt/","cdnURL":""},"nitro":{"routes":{},"envPrefix":"NUXT_"},"public":{"NETWORK_ID":5},"CONTRACTS":{"mainnet":{"token":"","sale":""},"goerli":{"token":"","sale":""},"polygon":{"token":"0x9973b3EA32B43BE1354FeE720e7D8d995F05eE7B","sale":"0xAE3917776e609f361a9616DFD96952E43FF23B56"},"mumbai":{"token":"0xa7a15C109E1BD6e36C1591A627db496C67Ac99D5","sale":"0x5b35082ED7dfD277e2933e38c34C29960BCE63d9","usdc":"0xe11A86849d99F524cAC3E7A0Ec1241828e332C62"}},"apikey":"2493f3b9c68b5eac9f71ad07b174cbeae376e2dc8c4be5bf55f4b25a2d329f1e"};
 const ENV_PREFIX = "NITRO_";
 const ENV_PREFIX_ALT = _runtimeConfig.nitro.envPrefix ?? process.env.NITRO_ENV_PREFIX ?? "_";
 const getEnv = (key) => {
