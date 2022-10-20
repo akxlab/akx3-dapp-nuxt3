@@ -62,6 +62,7 @@ export default defineNuxtConfig({
 
     build: {
         transpile: ['vuetify', '@ethersproject'],
+    
       },
       plugins: ["~/plugins/loading"],
     
@@ -84,7 +85,7 @@ export default defineNuxtConfig({
         'process.env.DEBUG': false
       },
       build: {
-        
+           
         commonjsOptions: {
             transformMixedEsModules: true
         }
