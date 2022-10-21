@@ -16,16 +16,23 @@ const  {
     getBalance,
     getSigner,
     connectUser,
-    loadConnectedWallet
+    loadConnectedWallet,
+    getAKXBalance,
+    getTokenContract,
+    getSaleContract
   }
  = useEther();
 
  const loading = store.isLoading;
- const drawer = useState('drawer', () => true);
-const rail = useState('rail', () => true);
+ const drawer = true;
+const rail = true;
 const networkName = useState("netName", () => undefined);
 const coinName = useState("coinName", () => undefined);
  const provider = useState('provider', () => undefined);
+let bal;
+let price;
+const isSet = useState('isset', () => false)
+
  onMounted(async () => {
   provider.value = await getProvider();
 
@@ -37,7 +44,7 @@ const coinName = useState("coinName", () => undefined);
 
    if(chainId == "0x13881") {
      networkName.value = "Mumbai Testnet (Polygon)"
-     coinName.value = "TEST MATIC"
+     coinName.value = "MATIC"
    } else if(chainId == "0x89") {
      networkName.value = "Polygon (Mainnet)"
      coinName.value = "MATIC"
@@ -53,12 +60,26 @@ await connectUser(provider);
 
 store.setLoading(true);
 const user:any = await getCurrentUser();
-const balance = await getBalance(user[0]);
+const balance0:String = ethers.utils.formatEther(await getBalance(user[0]))
+ const balance1 = balance0.split(".")
+   const decimals = balance1[1].slice(0, balance1[1].length-8)
+   const balance = balance1[0]+"."+decimals
 
 
-store.setUserData({address:user[0], balance:ethers.utils.formatUnits(balance), chainId})
 store.authenticated(true);
 store.setLoading(false);
+   const akxBalance = await getTokenContract()
+   const saleContract = await getSaleContract('0x5d0aA3B7Bb489b546EB1f2d6dfE7A101C554d360')
+   bal = ethers.utils.formatUnits(await akxBalance.balanceOf(user[0])).toLocaleUpperCase()
+  price = ethers.utils.formatUnits(await saleContract.price())
+
+   if(store) {
+
+     store.setUserData({address: user[0], balance: bal, chainId, eth: balance, matic: balance, price:price})
+     isSet.value = true
+   }
+
+
  })
  
     </script>
@@ -75,6 +96,7 @@ store.setLoading(false);
 
   </template>
 </v-app-bar>
+  <NavigationLeft :drawer="drawer" :rail="rail" :conn="{netName:networkName, coinName:coinName}" :balance="store.getBalance" :price="store.getPrice" :ethbal="store.getEth" :maticbal="store.getMatics" v-if="isSet" />
   <NavigationRight :drawer="drawer" :rail="rail" />
   <v-card
 class="ma-auto mt-15"
