@@ -3,6 +3,7 @@ import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfil
 import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill'
 
 
+// @ts-ignore
 export default defineNuxtConfig({
 
  telemetry: false,
@@ -53,20 +54,21 @@ export default defineNuxtConfig({
         link: [
           { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
           
-        {rel: 'stylesheet', href:'https://use.typekit.net/fib6nnw.css'}
+        {rel: 'stylesheet', href:'https://use.typekit.net/fib6nnw.css'},
+            {rel: 'stylesheet', href:'/fa/css/all.css'}
 
         
 
         ]
       },
-      css: ['vuetify/lib/styles/main.sass'],
+      css: ['vuetify/lib/styles/main.sass',  '~/assets/fa/css/all.css', '~/assets/fa/css/sharp-solid.css'],
     
 
     build: {
-        transpile: ['vuetify', '@ethersproject'],
+        transpile: ['vuetify', '@ethersproject', '@fortawesome'],
     
       },
-      plugins: ["~/plugins/loading"],
+      plugins: ["~/plugins/loading", "~/plugins/fontawesome"],
     
   
     vite: {

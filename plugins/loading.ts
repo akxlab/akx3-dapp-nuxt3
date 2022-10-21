@@ -1,4 +1,5 @@
 import { useGlobalStore } from "~~/stores";
+import {defineNuxtPlugin} from "#app";
 
 export default defineNuxtPlugin((nuxtApp) => {
     const store = useGlobalStore();

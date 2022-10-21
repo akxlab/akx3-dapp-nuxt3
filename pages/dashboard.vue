@@ -21,6 +21,8 @@ const  {
  = useEther();
 
  const loading = store.isLoading;
+ const drawer = useState('drawer', () => true);
+const rail = useState('rail', () => true);
 const networkName = useState("netName", () => undefined);
 const coinName = useState("coinName", () => undefined);
  const provider = useState('provider', () => undefined);
@@ -65,14 +67,15 @@ store.setLoading(false);
 
     <v-app-bar :elevation="11" rounded>
   <template v-slot:append>
-    <v-btn icon="mdi-wallet"></v-btn>
+    <v-btn icon="fa-sharp fa-solid fa-hexagon-exclamation"></v-btn>
 
-    <v-btn icon="mdi-chart-line"></v-btn>
+    <v-btn icon="fa-duotone fa-user-astronaut"></v-btn>
 
-    <v-btn icon="mdi-power"></v-btn>
-    <v-btn icon="mdi-dots-vertical"></v-btn>
+    <v-btn icon="fa-sharp fa-solid fa-circle-question" ></v-btn>
+
   </template>
 </v-app-bar>
+  <NavigationRight :drawer="drawer" :rail="rail" />
   <v-card
 class="ma-auto mt-15"
 width="80vw"

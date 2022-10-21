@@ -9,6 +9,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@volar-plugins/vetur": "^0.1.0",
     "nuxt": "3.0.0-rc.11",
     "vuetify": "3.0.0-beta.11"
@@ -16,6 +17,7 @@
   "dependencies": {
     "@esbuild-plugins/node-globals-polyfill": "^0.1.1",
     "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
+    "@fortawesome/vue-fontawesome": "^3.0.1",
     "@mdi/font": "^7.0.96",
     "@metamask/detect-provider": "^2.0.0",
     "@nuxt/types": "^2.15.8",

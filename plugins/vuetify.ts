@@ -3,7 +3,8 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import { ThemeDefinition } from 'vuetify'
-
+import {aliases, fa} from 'vuetify/iconsets/fa'
+import {defineNuxtPlugin} from "#app";
 
 
 
@@ -19,6 +20,13 @@ const AKXTheme: ThemeDefinition = {
 
 export default defineNuxtPlugin(nuxtApp => {
   const vuetify = createVuetify({
+    icons: {
+      defaultSet:'fa',
+      aliases,
+      sets: {
+        fa,
+      }
+    },
     defaults: {
       global: {
        ripple: false,
