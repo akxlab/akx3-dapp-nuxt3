@@ -7,7 +7,8 @@ export const useGlobalStore = defineStore('globalStore', {
             user: null as UserInfo || null,
             connected: false,
             network: null as Network || null,
-            loading: false
+            loading: false,
+            currentPrice: null as String || null
         }
     },
     getters: {
@@ -34,7 +35,31 @@ export const useGlobalStore = defineStore('globalStore', {
                 return state.user.balance;
            }
            return null;
+        },
+        getEth: (state) => {
+            if(state.user) {
+                if(state.user.chainId == "0x01" || state.user.chainId == "0x05") {
+                    return state.user.eth;
+                } else {
+                    return "not on eth network"
+                }
+
+            }
+        },
+        getMatics: (state) => {
+            if(state.user) {
+                if(state.user.chainId == "0x13881" || state.user.chainId == "0x89") {
+                    return state.user.matic
+                } else {
+                    return "not on matic network"
+                }
+
+            }
+        },
+        getPrice: (state) => {
+            return state.user.price;
         }
+
     },
     actions: {
         authenticated(status:boolean)  {
@@ -60,4 +85,8 @@ interface UserInfo {
     address: String;
     balance: String;
     chainId: String;
+    matic: String;
+    eth: String;
+    price: String;
+
 }
