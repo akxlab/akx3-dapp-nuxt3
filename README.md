@@ -10,3 +10,8 @@ cloud environment: vercel [https://vercel.com]
 
 chain nodes providers: Alchemy and Chainlink
 
+
+## TECH STACK
+
+Nuxt3, Vue3, Vite, Vuetify3, Typescript
+
