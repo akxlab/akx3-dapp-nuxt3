@@ -38,6 +38,7 @@ const navItems = [
     <v-list-item
         prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
         title="PROFILE NOT SET"
+        class="pa-2"
         nav
     >
 
@@ -46,7 +47,7 @@ const navItems = [
     <v-divider></v-divider>
     <v-list density="compact">
       <v-card  class="ma-2" >
-        <v-card-title>CONNECTION</v-card-title>
+        <v-card-subtitle class="pa-2">CONNECTION</v-card-subtitle>
         <v-divider />
         <v-card-text>
           <v-row>
@@ -54,13 +55,6 @@ const navItems = [
               {{$props.conn.netName}}
             </v-col>
 
-            <v-divider />
-            <v-col cols="5">
-             Coin
-            </v-col>
-            <v-col cols="7">
-              {{$props.conn.coinName}}
-            </v-col>
             <v-divider />
             <v-col cols="5">
               AKX Price
@@ -72,30 +66,25 @@ const navItems = [
         </v-card-text>
       </v-card></v-list>
     <v-list density="compact">
-      <v-card  class="ma-2" color="primary">
-      <v-card-title>BALANCES</v-card-title>
+      <v-card  class="pa-2" color="primary">
+      <v-card-title class="pa-0 pl-1 pb-2">BALANCES</v-card-title>
       <v-divider />
       <v-card-text>
         <v-row>
-          <v-col cols="5">
-            ETH
+          <v-col cols="5" class="pa-0 pt-2">
+         {{$props.conn.coinName}}
           </v-col>
           <v-col cols="7">
-            {{  $props.ethbal }}
+            <h2 class="balance-coin">{{  $props.maticbal }}</h2>
           </v-col>
           <v-divider />
-          <v-col cols="5">
-            MATICS
-          </v-col>
-          <v-col cols="7">
-            {{  $props.maticbal }}
-          </v-col>
+
           <v-divider />
-          <v-col cols="5">
+          <v-col cols="12" class="pa-0 pt-2">
             AKX
           </v-col>
-          <v-col cols="7">
-            {{ balance }}
+          <v-col cols="12">
+            <div class="balance-container"><h2 class="balance"> {{ balance }} </h2></div>
           </v-col>
         </v-row>
       </v-card-text>
@@ -108,3 +97,40 @@ const navItems = [
     </v-list>
   </v-navigation-drawer>
 </template>
+<style>
+.balance {
+  font-size:2.4rem;
+  font-weight:700 !important;
+  width:100%;
+  overflow:hidden;
+line-height:3rem;
+  vertical-align: middle;
+  text-wrap:none;
+  max-height:1.3em;
+  text-align:center;
+
+}
+
+.balance-container {
+  display:block;
+  width:100%;
+  margin:0 auto;
+  background:rgba(0,0,0,0.5);
+  padding:2px;
+  padding-top:0;
+  text-align:center;
+  padding-left:14px;
+  padding-right:14px;
+  border-radius:15px;
+  border:2px solid rgba(255,255,255,0.5);
+}
+
+.balance-coin {
+  font-size:1.8rem;
+  width:90%;
+  overflow:hidden;
+  line-height:2.8rem;
+  text-wrap:none;
+  max-height:1.3em;
+}
+</style>
