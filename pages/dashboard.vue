@@ -62,15 +62,18 @@ store.setLoading(true);
 const user:any = await getCurrentUser();
 const balance0:String = ethers.utils.formatEther(await getBalance(user[0]))
  const balance1 = balance0.split(".")
-   const decimals = balance1[1].slice(0, balance1[1].length-8)
-   const balance = balance1[0]+"."+decimals
+   const decimals = balance1[1].slice(0, balance1[1].length)
+   const balance = balance1[0]+"."+decimals+"..."
 
 
 store.authenticated(true);
 store.setLoading(false);
    const akxBalance = await getTokenContract()
    const saleContract = await getSaleContract('0x5d0aA3B7Bb489b546EB1f2d6dfE7A101C554d360')
-   bal = ethers.utils.formatUnits(await akxBalance.balanceOf(user[0])).toLocaleUpperCase()
+   const bal0 = ethers.utils.formatUnits(await akxBalance.balanceOf(user[0])).toLocaleUpperCase()
+   const bal1 = bal0.split(".")
+   const dec = bal1[1].slice(0, bal1[1].length);
+   bal = bal1[0]+"."+dec+"..."
   price = ethers.utils.formatUnits(await saleContract.price())
 
    if(store) {
@@ -118,6 +121,14 @@ style="border-radius:15px;border:1px rgba(255,255,255,0.2) solid;"
 
 <style>
 @import url("https://use.typekit.net/fib6nnw.css");
+
+* {
+  font-family: sofia-pro, sans-serif;
+
+  font-weight: 300 !important;
+
+  font-style: normal !important;
+}
 
 strong {
   text-transform: uppercase;
