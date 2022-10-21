@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 
 import { useGlobalStore } from './stores';
+import {useState} from "#app";
+
 
 const store = useGlobalStore();
 const loadValue = ref(0);
@@ -19,8 +21,9 @@ if(store.isLoading == false) {
         </v-overlay>
        
       </div>
+
     <v-container fluid>
-   
+
       <v-main>
         <NuxtPage />
       </v-main>

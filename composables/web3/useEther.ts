@@ -93,7 +93,7 @@ export default function () {
   }
   const switchNetwork = async () => {
     connection = await getProvider();
-    await connection.provider.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: useRuntimeConfig().public.NETWORK_ID }] })
+    await connection.provider.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0x13881' }] })
   }
 
   const addToken = async () => {
