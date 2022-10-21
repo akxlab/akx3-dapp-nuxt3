@@ -1,42 +1,8 @@
-# Nuxt 3 Minimal Starter
+# AKX SYSTEM DAPP 
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+## POLYGON AND ETHEREUM NETWORKS
 
-## Setup
+cloud environment: vercel [https://vercel.com]
 
-Make sure to install the dependencies:
+chain nodes providers: Alchemy and Chainlink
 
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
