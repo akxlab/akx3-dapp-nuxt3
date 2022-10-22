@@ -32,8 +32,8 @@ export type User = {
 }
 
 export type UserMetas = {
-    displayName?: String;
-    balance?: String;
-    tokenBalance?: String;
+    username?: String;
     avatar?: String;
+    public: Boolean;
+    email?: String;
 }

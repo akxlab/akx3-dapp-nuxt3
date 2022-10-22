@@ -1,5 +1,6 @@
 import { Network } from "~~/composables/types";
 import { useStorage } from "@vueuse/core";
+import {useProfileStore} from "~/stores/profile";
 
 export const useGlobalStore = defineStore('globalStore', {
     state: () => {
