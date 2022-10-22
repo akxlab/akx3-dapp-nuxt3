@@ -5,6 +5,7 @@ import useEther from '../composables/web3/useEther';
 import {useGlobalStore} from "~/stores";
 import { ethers } from 'ethers';
 import BuyButton from "~/components/buttons/BuyButton.vue";
+
 const store = useGlobalStore();
 const  {
     getProvider,
@@ -22,6 +23,7 @@ const  {
     getSaleContract
   }
  = useEther();
+const metas = useState("profile_metas", () => undefined);
 
  const loading = store.isLoading;
  const drawer = true;
@@ -34,6 +36,7 @@ let price;
 const isSet = useState('isset', () => false)
 
  onMounted(async () => {
+
   provider.value = await getProvider();
 
 
@@ -87,7 +90,7 @@ store.setLoading(false);
  
     </script>
 <template>
-
+<v-container fluid>
 
     <v-app-bar :elevation="11" rounded>
   <template v-slot:append>
@@ -101,26 +104,12 @@ store.setLoading(false);
 </v-app-bar>
   <NavigationLeft :drawer="drawer" :rail="rail" :conn="{netName:networkName, coinName:coinName}" :balance="store.getBalance" :price="store.getPrice" :ethbal="store.getEth" :maticbal="store.getMatics" v-if="isSet" />
   <NavigationRight :drawer="drawer" :rail="rail" />
-<v-container>
+
+  <ProfileCreate />
 
 
 
-  <v-card
-class="ma-auto mt-15"
-width="80vw"
-height="85vh"
-style="border-radius:15px;border:1px rgba(255,255,255,0.2) solid;"
-
-    >
-
-    <v-card-text>
-  
-  <BuyButton :net-name="networkName" :coin-name="coinName" />
-
-      </v-card-text>
-    </v-card>
 </v-container>
-
 </template>
 
 <style>
