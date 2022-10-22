@@ -81,6 +81,7 @@ declare global {
   const useCssVars: typeof import('vue')['useCssVars']
   const useError: typeof import('../../node_modules/nuxt/dist/app')['useError']
   const useFetch: typeof import('../../node_modules/nuxt/dist/app')['useFetch']
+  const useGSAP: typeof import('../../composables/useGSAP')['default']
   const useHead: typeof import('../../node_modules/nuxt/dist/head/runtime')['useHead']
   const useLazyAsyncData: typeof import('../../node_modules/nuxt/dist/app')['useLazyAsyncData']
   const useLazyFetch: typeof import('../../node_modules/nuxt/dist/app')['useLazyFetch']
@@ -189,6 +190,7 @@ declare module '@vue/runtime-core' {
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
     readonly useError: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useError']>
     readonly useFetch: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useFetch']>
+    readonly useGSAP: UnwrapRef<typeof import('../../composables/useGSAP')['default']>
     readonly useHead: UnwrapRef<typeof import('../../node_modules/nuxt/dist/head/runtime')['useHead']>
     readonly useLazyAsyncData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useLazyAsyncData']>
     readonly useLazyFetch: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app')['useLazyFetch']>

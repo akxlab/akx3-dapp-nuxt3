@@ -57,14 +57,12 @@ const connect = async () => {
   navigateTo("/dashboard");
 }
 
+const { gsap, ScrollTrigger } = useGSAP()
 
 
 onMounted(async () => {
 
   await loadConnectedWallet(provider.value);
-
-
-
 
 })
 
@@ -130,6 +128,96 @@ if(provider.value) {
 
 <style>
 @import url("https://use.typekit.net/fib6nnw.css");
+
+.points-container {
+  background: radial-gradient(ellipse at center, rgba(68,53,1,0.3) 0%, #3d3c3c 100%);
+  height: 100%;
+  width:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:9997;
+  opacity:0;
+}
+
+.points {
+  display:block;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.4);
+  width:auto;
+  height:auto;
+  position:absolute;
+  background: linear-gradient(to bottom, #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 78%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #fff;
+  font-size:10rem;
+  font-family: sofia-pro, sans-serif;
+  z-index:10001;
+  font-weight: 400 !important;
+  top:19%;
+  left:40%;
+  font-style: normal !important;
+  text-align:center;
+  opacity:0;
+}
+
+.points:after {
+
+  background: none;
+  content: attr(data-heading);
+  left: 0;
+  top: 0;
+  z-index: 9998;
+  position: absolute;
+  text-shadow:
+      -1px 0 1px #c6bb9f,
+      0 1px 1px #c6bb9f,
+      5px 5px 10px rgba(0, 0, 0, 0.4),
+      -5px -5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.score:after {
+  background: none;
+  content: attr(data-heading);
+  left: 0;
+  top: 0;
+  z-index: 10001;
+  position: absolute;
+  text-shadow:
+      -1px 0 1px #c6bb9f,
+      0 1px 1px #c6bb9f,
+      5px 5px 10px rgba(0, 0, 0, 0.4),
+      -5px -5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.score {
+  background: linear-gradient(to bottom, #cfc09f 22%,#634f2c 24%, #cfc09f 26%, #cfc09f 27%,#ffecb3 40%,#3a2c0f 78%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #fff;
+  width:auto;
+  height:auto;
+
+  font-size:20rem;
+  text-transform: uppercase;
+  font-family: sofia-pro, sans-serif;
+
+  font-weight: 700 !important;
+
+  font-style: normal !important;
+  text-align:center;
+  padding-left:12%;
+  padding-right:12%;
+  padding-top:-5px;
+
+  z-index:10000;
+  position:absolute;
+  border-radius:50%;
+  opacity:0;
+  top:5%;
+  left:25%;
+
+}
 
 strong {
   text-transform: uppercase;

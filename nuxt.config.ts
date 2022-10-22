@@ -65,7 +65,7 @@ export default defineNuxtConfig({
     
 
     build: {
-        transpile: ['vuetify', '@ethersproject', '@fortawesome'],
+        transpile: ['vuetify', '@ethersproject', '@fortawesome', 'gsap'],
     
       },
       plugins: ["~/plugins/loading", "~/plugins/fontawesome"],

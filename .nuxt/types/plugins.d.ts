@@ -13,6 +13,7 @@ type NuxtAppInjections =
   InjectionType<typeof import("../../node_modules/@pinia/nuxt/dist/runtime/plugin.vue3").default> &
   InjectionType<typeof import("../../plugins/loading").default> &
   InjectionType<typeof import("../../plugins/fontawesome").default> &
+  InjectionType<typeof import("../../plugins/gsap").default> &
   InjectionType<typeof import("../../plugins/pinia-plugin-persist.client").default> &
   InjectionType<typeof import("../../plugins/vuetify").default>
 
