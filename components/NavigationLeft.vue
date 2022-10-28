@@ -4,17 +4,27 @@
 
 
 import {useGlobalStore} from '~/stores';
+import {useProfileStore} from "~/stores/profile";
+import {useAvatar} from "#imports";
 const store = useGlobalStore()
+const profile = useProfileStore();
 
 defineProps({drawer:Boolean, rail:Boolean, conn: Object, balance: String, ethbal: String, maticbal:String, price:String});
-
-
+const uploader = useAvatar();
+const userdata = await uploader.getUserData(store.user.address);
+const avatar = "https://cloudflare-ipfs.com/ipfs/"+userdata.avatar;
+const identity = userdata.identity;
+const username = userdata.username;
+profile.setAvatar(avatar)
+profile.setUserName(username);
+profile.setAkxId(identity);
 
 
 
 const navItems = [
+  {title: 'Pointys (rewards)', icon: "fa-light fa-feather-pointed", url: "/pointy"},
   {
-    title: 'Create / Edit Profile', icon: "fa-light fa-user-pen",
+    title: 'Create / Edit Profile', icon: "fa-light fa-user-pen", url: "/profile"
 
   },
   {
@@ -34,13 +44,20 @@ const navItems = [
 
 </script>
 <template>
-  <v-navigation-drawer app  :permanent="true" location="left" v-model="drawer"  >
+  <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+  <v-navigation-drawer app   location="left" v-model="drawer"  >
     <v-list-item
-        prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
-        title="PROFILE NOT SET"
-        class="pa-2"
+
+        :href="`/profile/${profile.username}`"
+        class="pa-7"
         nav
     >
+    <v-list-img class="pa-3">
+      <v-avatar size="50">
+        <nuxt-img :src="profile.avatar" width="50"  />
+      </v-avatar>
+    </v-list-img>
+      <v-list-item-title class="ml-15 avatar-title">{{profile.username}}</v-list-item-title>
 
     </v-list-item>
 
@@ -90,7 +107,7 @@ const navItems = [
       </v-card-text>
     </v-card></v-list>
     <v-list density="compact">
-      <v-list-item v-for="item in navItems" :key="item.title" link :prepend-icon="item.icon" :title="item.title" class="my-4">
+      <v-list-item v-for="item in navItems" :key="item.title" link :href="item.url || null" :prepend-icon="item.icon" :title="item.title" class="my-4">
 
 
       </v-list-item>
@@ -132,5 +149,13 @@ line-height:3rem;
   line-height:2.8rem;
   text-wrap:none;
   max-height:1.3em;
+}
+
+.avatar-title {
+  font-size:1.2rem !important;
+  font-weight:900 !important;
+}
+.avatar-title:before {
+  content: '@';
 }
 </style>

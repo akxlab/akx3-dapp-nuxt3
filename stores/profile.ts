@@ -10,6 +10,7 @@ export const useProfileStore = defineStore("profile", {
                 avatar: "",
                 public: false,
                 email: ""},
+                akxid: "",
             loading: false,
             editing:false,
             creating: true,
@@ -50,6 +51,9 @@ export const useProfileStore = defineStore("profile", {
         },
         canSubmitCreateForm(state) {
             return state.agreedToGPRS == true && state.agreeToRiskPolicy == true && state.agreeToTOS == true;
+        },
+        AKXID(state) {
+            return state.akxid;
         }
     },
     actions: {
@@ -59,7 +63,8 @@ export const useProfileStore = defineStore("profile", {
         setUserName(payload:string) {
             this.metas.username = payload;
         },
-        setAvatar(payload:string) {
+        setAvatar(payload: string) {
+            // @ts-ignore
             this.metas.avatar = payload;
         },
         setEmail(payload:string) {
@@ -85,6 +90,9 @@ export const useProfileStore = defineStore("profile", {
         },
         setCreating(create:boolean) {
             this.creating = create;
+        },
+        setAkxId(payload:string) {
+            this.akxid = payload;
         }
     },
     persist: {

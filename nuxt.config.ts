@@ -109,12 +109,13 @@ export default defineNuxtConfig({
         autoImports: [
             'defineStore',
             ['defineStore', 'definePiniaStore']
-        ]
+        ],
+
         
     }
-],],
-highcharts: {
-    exporting: true
-  }
+],     '@nuxt/image-edge'],
+image: {
+     domains: ['akx3.com', 'cloudflare.com', 'cloudflare-ipfs.com']
+}
   
 })

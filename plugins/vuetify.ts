@@ -18,6 +18,13 @@ const AKXTheme: ThemeDefinition = {
   }
 }
 
+const AKXLight: ThemeDefinition = {
+  dark: true,
+  colors: {
+    surface: '#31354d'
+  }
+}
+
 export default defineNuxtPlugin(nuxtApp => {
   const vuetify = createVuetify({
     icons: {
@@ -38,6 +45,7 @@ export default defineNuxtPlugin(nuxtApp => {
       defaultTheme: 'AKXTheme',
       themes: {
         AKXTheme,
+        AKXLight
       }
     }
   })
