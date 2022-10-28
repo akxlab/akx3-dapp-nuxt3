@@ -89,6 +89,18 @@ store.setLoading(false);
 <template>
 
 
+    <v-app-bar :elevation="11" rounded>
+  <template v-slot:append>
+    <v-btn icon="fa-sharp fa-solid fa-hexagon-exclamation"></v-btn>
+
+    <v-btn icon="fa-duotone fa-user-astronaut"></v-btn>
+
+    <v-btn icon="fa-sharp fa-solid fa-circle-question" ></v-btn>
+
+  </template>
+</v-app-bar>
+  <NavigationLeft :drawer="drawer" :rail="rail" :conn="{netName:networkName, coinName:coinName}" :balance="store.getBalance" :price="store.getPrice" :ethbal="store.getEth" :maticbal="store.getMatics" v-if="isSet" />
+  <NavigationRight :drawer="drawer" :rail="rail" />
 <v-container>
 
 
@@ -112,6 +124,108 @@ style="border-radius:15px;border:1px rgba(255,255,255,0.2) solid;"
 </template>
 
 <style>
-@import "../assets/css/main.css";
+@import url("https://use.typekit.net/fib6nnw.css");
 
+* {
+  font-family: sofia-pro, sans-serif;
+
+  font-weight: 300 !important;
+
+  font-style: normal !important;
+}
+
+strong {
+  text-transform: uppercase;
+  font-family: sofia-pro, sans-serif;
+
+  font-weight: 700 !important;
+
+  font-style: normal !important;
+}
+
+.btn-text {
+  font-family: sofia-pro, sans-serif;
+
+  font-weight: 700;
+
+  font-style: normal;
+}
+
+.welcome-title {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-family: sofia-pro, sans-serif;
+
+  font-weight: 700 !important;
+
+  font-style: normal !important;
+}
+
+.home-content {
+  width: 360px;
+  font-size: 1rem;
+
+  font-family: sofia-pro, sans-serif;
+
+  font-weight: 300 !important;
+
+  font-style: normal !important;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .welcome-title {
+    font-size: 1.8rem;
+    line-height: 3rem;
+    text-transform: uppercase;
+    font-family: sofia-pro, sans-serif;
+
+    font-weight: 700 !important;
+
+    font-style: normal !important;
+  }
+  .home-content {
+    width: 100%;
+    font-size: 1rem;
+
+    font-family: sofia-pro, sans-serif;
+
+    font-weight: 300 !important;
+
+    font-style: normal !important;
+  }
+
+  .btn-text {
+    font-family: sofia-pro, sans-serif;
+
+    font-weight: 700;
+
+    font-style: normal;
+    width:100%;
+    word-wrap: break-word;
+  }
+
+}
+/****** START - iPad ******/
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .welcome-title {
+    font-size: 1.8rem;
+    line-height: 3rem;
+    text-transform: uppercase;
+    font-family: sofia-pro, sans-serif;
+
+    font-weight: 700 !important;
+
+    font-style: normal !important;
+  }
+  .home-content {
+    width: 100%;
+    font-size: 1rem;
+
+    font-family: sofia-pro, sans-serif;
+
+    font-weight: 300 !important;
+
+    font-style: normal !important;
+  }
+}
 </style>

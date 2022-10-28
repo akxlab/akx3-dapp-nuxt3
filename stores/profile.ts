@@ -19,7 +19,8 @@ export const useProfileStore = defineStore("profile", {
             agreeToNewsletter: false,
             canEdit: false,
                 // @ts-ignore
-            status: ""
+            status: "",
+                profileUrl: "",
         }
     },
     getters: {
@@ -58,6 +59,8 @@ export const useProfileStore = defineStore("profile", {
         },
         setUserName(payload:string) {
             this.metas.username = payload;
+            this.profileUrl = "/profile/"+payload;
+
         },
         setAvatar(payload:string) {
             this.metas.avatar = payload;

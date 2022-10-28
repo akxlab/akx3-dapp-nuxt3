@@ -9,7 +9,12 @@ export const useGlobalStore = defineStore('globalStore', {
             connected: false,
             network: null as Network || null,
             loading: false,
-            currentPrice: null as String || null
+            currentPrice: null as String || null,
+            drawer: false,
+            isMobile: false,
+            hasMetamask: false,
+            showLeftNav: null as Boolean || null,
+            showRightNav:null as Boolean || null,
         }
     },
     getters: {
@@ -59,6 +64,12 @@ export const useGlobalStore = defineStore('globalStore', {
         },
         getPrice: (state) => {
             return state.user.price;
+        },
+        canShowLeftNav: (state) => {
+            return state.showLeftNav;
+        },
+        canShowRightNav: (state) => {
+            return state.showLeftNav;
         }
 
     },
@@ -75,6 +86,12 @@ export const useGlobalStore = defineStore('globalStore', {
         },
         setLoading(status:boolean) {
             this.loading = status;
+        },
+        setShowLeftNav(payload:boolean) {
+            this.showLeftNav = payload;
+        },
+        setShowRightNav(payload:boolean) {
+            this.showRightNav = payload;
         }
     },
     persist: {
