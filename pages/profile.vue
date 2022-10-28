@@ -4,7 +4,6 @@ import useEther from '../composables/web3/useEther';
 
 import {useGlobalStore} from "~/stores";
 import { ethers } from 'ethers';
-import BuyButton from "~/components/buttons/BuyButton.vue";
 import {useRoute, useState} from "#app";
 import {computed, onMounted, useImage} from "#imports";
 import useAvatar from "~/composables/useAvatar";

@@ -8,3 +8,6 @@ node_modules
 .nuxt/tsconfig.json
 api.akx3.com-key.pem
 api.akx3.com.pem
+localhost+4-key.pem
+*.pem
+.nuxt/*/**
