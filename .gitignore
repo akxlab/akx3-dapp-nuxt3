@@ -6,3 +6,5 @@ node_modules
 .pem
 .idea
 .nuxt/tsconfig.json
+api.akx3.com-key.pem
+api.akx3.com.pem
